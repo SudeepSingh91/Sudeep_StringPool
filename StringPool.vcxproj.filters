@@ -19,6 +19,12 @@
     <Filter Include="Source Files\HashedString">
       <UniqueIdentifier>{a4e90dde-fada-424d-bda3-bdd9ad871595}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Pool">
+      <UniqueIdentifier>{9bb6c715-9e28-4502-b52c-6a1dbd98372d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Pool">
+      <UniqueIdentifier>{a1424832-6c91-4ae3-a6b0-d476dbae30fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HashedString\HashedString.h">
@@ -27,10 +33,22 @@
     <ClInclude Include="HashedString\HashedString-inl.h">
       <Filter>Header Files\HashedString</Filter>
     </ClInclude>
+    <ClInclude Include="Pool\Pool.h">
+      <Filter>Header Files\Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="Pool\Pool-inl.h">
+      <Filter>Header Files\Pool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HashedString\HashedString.cpp">
       <Filter>Source Files\HashedString</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pool\Pool.cpp">
+      <Filter>Source Files\Pool</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

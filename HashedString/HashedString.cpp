@@ -6,7 +6,8 @@ namespace Pool
 {
 	unsigned int HashedString::Hash(const char* i_string)
 	{
-		return Hash(reinterpret_cast<void*>(const_cast<char*>(i_string)), strlen(i_string));
+		const unsigned int bytes = static_cast<const unsigned int>(strlen(i_string));
+		return Hash(reinterpret_cast<void*>(const_cast<char*>(i_string)), bytes);
 	}
 
 	unsigned int HashedString::Hash(const void * i_bytes, const unsigned int i_count)
@@ -32,7 +33,7 @@ namespace Pool
 
 	HashedString::HashedString(const char* i_string) : m_hash(Hash(i_string)),
 #if _DEBUG
-		m_string(strdup(i_string))
+		m_string(_strdup(i_string))
 #endif 
 	{
 
@@ -40,7 +41,7 @@ namespace Pool
 
 	HashedString::HashedString(const HashedString& i_hash) : m_hash(i_hash.m_hash),
 #if _DEBUG
-		m_string(strdup(i_hash.m_string))
+		m_string(_strdup(i_hash.m_string))
 #endif 
 	{
 

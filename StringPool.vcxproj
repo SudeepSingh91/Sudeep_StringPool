@@ -144,9 +144,13 @@
   <ItemGroup>
     <ClInclude Include="HashedString\HashedString-inl.h" />
     <ClInclude Include="HashedString\HashedString.h" />
+    <ClInclude Include="Pool\Pool-inl.h" />
+    <ClInclude Include="Pool\Pool.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HashedString\HashedString.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Pool\Pool.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

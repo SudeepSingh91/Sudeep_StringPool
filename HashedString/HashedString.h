@@ -12,14 +12,14 @@ namespace Pool
 		HashedString& operator=(const HashedString& i_hash);
 
 		~HashedString();
-
-		static unsigned int Hash(const char* i_string);
-		static unsigned int Hash(const void * i_bytes, const unsigned int i_count);
 		
 		inline unsigned int Get() const;
 		inline bool operator==(const HashedString & i_hash) const;
 
 	private:
+		unsigned int Hash(const char* i_string);
+		unsigned int Hash(const void * i_bytes, const unsigned int i_count);
+
 		unsigned int m_hash;
 
 #if _DEBUG
