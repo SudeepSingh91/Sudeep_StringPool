@@ -10,6 +10,8 @@ namespace Pool
 	{
 		assert(i_string != nullptr);
 		
+		DEBUG_PRINT("Creating hash of string %s", i_string);
+
 		const unsigned int bytes = static_cast<const unsigned int>(strlen(i_string));
 		return Hash(reinterpret_cast<void*>(const_cast<char*>(i_string)), bytes);
 	}
@@ -26,6 +28,8 @@ namespace Pool
 			hash = 16777619 * (hash ^ p[i]);
 		}
 
+		DEBUG_PRINT("Created hash %u", hash);
+
 		return hash ^ (hash >> 16);
 	}
 
@@ -34,7 +38,7 @@ namespace Pool
 		m_string(nullptr)
 #endif 
 	{
-
+		DEBUG_PRINT("Called default constructor of Hashed String");
 	}
 
 	HashedString::HashedString(const char* i_string) : m_hash(Hash(i_string)),
@@ -42,7 +46,7 @@ namespace Pool
 		m_string(_strdup(i_string))
 #endif 
 	{
-
+		DEBUG_PRINT("Called overloaded constructor of Hashed String");
 	}
 
 	HashedString::HashedString(const HashedString& i_hash) : m_hash(i_hash.m_hash),
@@ -50,11 +54,13 @@ namespace Pool
 		m_string(_strdup(i_hash.m_string))
 #endif 
 	{
-
+		DEBUG_PRINT("Called copy constructor of Hashed String");
 	}
 
 	HashedString& HashedString::operator=(const HashedString& i_hash)
 	{
+		DEBUG_PRINT("Called assignment operator of Hashed String");
+		
 		if (this != &i_hash)
 		{
 			m_hash = i_hash.m_hash;
@@ -73,6 +79,8 @@ namespace Pool
 
 	HashedString::~HashedString()
 	{
+		DEBUG_PRINT("Called destructor of Hashed String");
+
 #if _DEBUG
 		if (m_string)
 		{

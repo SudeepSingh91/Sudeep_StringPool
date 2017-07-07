@@ -19,11 +19,16 @@ namespace Pool
 		i_size -= sizeof(Pool);
 
 		Pool* m_pool = new (poolMem) Pool(i_size, i_memoryAddr);
+
+		DEBUG_PRINT("Creating String Pool of size %d", i_size);
+
 		return m_pool;
 	}
 
 	void Pool::Destroy()
 	{
+		DEBUG_PRINT("Destroyed String Pool");
+		
 		void* memoryToFree = static_cast<uint8_t*>(m_poolBase) - sizeof(Pool);
 		this->~Pool();
 		_aligned_free(memoryToFree);
@@ -49,6 +54,8 @@ namespace Pool
 			size_t length = strlen(i_string);
 			if (m_availSize < (sizeof(size_t) + length))
 			{
+				DEBUG_PRINT("Not enough memory in Stirng Pool to accomodate string %s", i_string);
+				
 				return nullptr;
 			}
 			else
@@ -59,11 +66,16 @@ namespace Pool
 				char* str = reinterpret_cast<char*>(static_cast<uint8_t*>(m_poolBase) + offset + sizeof(size_t));
 				memcpy(str, i_string, length);
 				m_availSize = m_availSize - sizeof(size_t) - length;
+
+				DEBUG_PRINT("%s added to String Pool", i_string);
+
 				return str;
 			}
 		}
 		else
 		{
+			DEBUG_PRINT("%s already in String Pool", i_string);
+			
 			return memAddr;
 		}
 	}
@@ -86,12 +98,16 @@ namespace Pool
 				HashedString tempHash(string);
 				if (hash.Get() == tempHash.Get())
 				{
+					DEBUG_PRINT("found string %s in String Pool", i_string);
+					
 					return string;
 				}
 			}
-
+			
 			iterPool = iterPool + sizeof(size_t) + stringSize;
 		}
+		
+		DEBUG_PRINT("could not find string %s in String Pool", i_string);
 
 		return nullptr;
 	}
