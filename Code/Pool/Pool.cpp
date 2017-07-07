@@ -4,12 +4,16 @@
 #include <stdint.h>
 #include <string>
 
+#include "../DebugInfo/DebugInfo.h"
 #include "../HashedString/HashedString.h"
 
 namespace Pool
 {
 	Pool* Pool::Create(void* i_memoryAddr, size_t i_size)
 	{
+		assert(i_memoryAddr != nullptr);
+		assert(i_size > sizeof(Pool));
+		
 		void* poolMem = i_memoryAddr;
 		i_memoryAddr = static_cast<uint8_t*>(i_memoryAddr) + sizeof(Pool);
 		i_size -= sizeof(Pool);
@@ -37,6 +41,8 @@ namespace Pool
 
 	const char* Pool::Add(const char* i_string)
 	{
+		assert(i_string != nullptr);
+		
 		const char* memAddr = Find(i_string);
 		if (memAddr == nullptr)
 		{
@@ -64,6 +70,8 @@ namespace Pool
 
 	const char* Pool::Find(const char* i_string)
 	{
+		assert(i_string != nullptr);
+		
 		uint8_t* iterPool = static_cast<uint8_t*>(m_poolBase);
 		uint8_t* endMemAddr = iterPool + m_totalSize - m_availSize;
 		HashedString hash(i_string);

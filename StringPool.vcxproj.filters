@@ -25,30 +25,42 @@
     <Filter Include="Source Files\Pool">
       <UniqueIdentifier>{a1424832-6c91-4ae3-a6b0-d476dbae30fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\DebugInfo">
+      <UniqueIdentifier>{f586dc0c-dbeb-418d-a19c-afffeae81c8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DebugInfo">
+      <UniqueIdentifier>{374c1cb1-8921-4b76-9cd6-f0388f8135c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HashedString\HashedString.h">
+    <ClInclude Include="Code\HashedString\HashedString.h">
       <Filter>Header Files\HashedString</Filter>
     </ClInclude>
-    <ClInclude Include="HashedString\HashedString-inl.h">
+    <ClInclude Include="Code\HashedString\HashedString-inl.h">
       <Filter>Header Files\HashedString</Filter>
     </ClInclude>
-    <ClInclude Include="Pool\Pool.h">
+    <ClInclude Include="Code\Pool\Pool.h">
       <Filter>Header Files\Pool</Filter>
     </ClInclude>
-    <ClInclude Include="Pool\Pool-inl.h">
+    <ClInclude Include="Code\Pool\Pool-inl.h">
       <Filter>Header Files\Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\DebugInfo\DebugInfo.h">
+      <Filter>Header Files\DebugInfo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HashedString\HashedString.cpp">
+    <ClCompile Include="Code\HashedString\HashedString.cpp">
       <Filter>Source Files\HashedString</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Code\Pool\Pool.cpp">
+      <Filter>Source Files\Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Pool\Pool.cpp">
-      <Filter>Source Files\Pool</Filter>
+    <ClCompile Include="Code\DebugInfo\DebugInfo.cpp">
+      <Filter>Source Files\DebugInfo</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -2,16 +2,22 @@
 
 #include <string>
 
+#include "../DebugInfo/DebugInfo.h"
+
 namespace Pool
 {
 	unsigned int HashedString::Hash(const char* i_string)
 	{
+		assert(i_string != nullptr);
+		
 		const unsigned int bytes = static_cast<const unsigned int>(strlen(i_string));
 		return Hash(reinterpret_cast<void*>(const_cast<char*>(i_string)), bytes);
 	}
 
 	unsigned int HashedString::Hash(const void * i_bytes, const unsigned int i_count)
 	{
+		assert(i_bytes != nullptr);
+		
 		register const unsigned char * p = static_cast<const unsigned char *>(i_bytes);
 		unsigned int hash = 2166136261;
 

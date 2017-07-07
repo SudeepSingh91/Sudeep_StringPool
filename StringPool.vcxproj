@@ -18,6 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Code\DebugInfo\DebugInfo.h" />
+    <ClInclude Include="Code\HashedString\HashedString-inl.h" />
+    <ClInclude Include="Code\HashedString\HashedString.h" />
+    <ClInclude Include="Code\Pool\Pool-inl.h" />
+    <ClInclude Include="Code\Pool\Pool.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Code\DebugInfo\DebugInfo.cpp" />
+    <ClCompile Include="Code\HashedString\HashedString.cpp" />
+    <ClCompile Include="Code\main.cpp" />
+    <ClCompile Include="Code\Pool\Pool.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{41A60D40-4BC3-49F2-AFB5-C546B6500BEE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -58,28 +71,40 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="PropertySheets\SolutionMacros.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="PropertySheets\SolutionMacros.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="PropertySheets\SolutionMacros.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="PropertySheets\SolutionMacros.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ExecuteDir)</OutDir>
+    <IntDir>$(IntermediateDir)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ExecuteDir)</OutDir>
+    <IntDir>$(IntermediateDir)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ExecuteDir)</OutDir>
+    <IntDir>$(IntermediateDir)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ExecuteDir)</OutDir>
+    <IntDir>$(IntermediateDir)</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -141,17 +166,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="HashedString\HashedString-inl.h" />
-    <ClInclude Include="HashedString\HashedString.h" />
-    <ClInclude Include="Pool\Pool-inl.h" />
-    <ClInclude Include="Pool\Pool.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="HashedString\HashedString.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Pool\Pool.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
