@@ -60,9 +60,10 @@ namespace Pool
 			}
 			else
 			{
-				size_t offset = m_totalSize - m_availSize;
+				const size_t offset = m_totalSize - m_availSize;
 				size_t* size = reinterpret_cast<size_t*>(static_cast<uint8_t*>(m_poolBase) + offset);
 				*size = length;
+				length = length + 1;
 				char* str = reinterpret_cast<char*>(static_cast<uint8_t*>(m_poolBase) + offset + sizeof(size_t));
 				memcpy(str, i_string, length);
 				m_availSize = m_availSize - sizeof(size_t) - length;
@@ -104,6 +105,7 @@ namespace Pool
 				}
 			}
 			
+			stringSize = stringSize + 1;
 			iterPool = iterPool + sizeof(size_t) + stringSize;
 		}
 		
